@@ -66,7 +66,7 @@ async function searchMoviesAndSeries() {
   }
   currentPage = 1;
   await loadMoviesAndSeries(currentSearchQuery, currentPage, true);
-  
+
   // Push the search query and page to history
   history.pushState({ query: currentSearchQuery, page: currentPage }, '', `?search=${encodeURIComponent(currentSearchQuery)}`);
 }
@@ -121,14 +121,14 @@ function displayDetails(type, data, videos) {
 
 window.addEventListener('popstate', (event) => {
   if (event.state && event.state.query) {
-    // On back/forward navigation, restore the previous search state
+    // If there's a search query in the history, load the previous search results
     currentSearchQuery = event.state.query;
     currentPage = event.state.page;
     document.getElementById('search-input').value = currentSearchQuery;
     loadMoviesAndSeries(currentSearchQuery, currentPage, true);
   } else {
-    // If no state is available, load the default (home) page
-    loadMoviesAndSeries();
+    // If there's no search query, load the default (home) page
+    loadMoviesAndSeries(); // Load default posts if no search query in history
   }
 });
 
@@ -156,5 +156,5 @@ document.getElementById('load-more-button').addEventListener('click', () => {
   loadMoviesAndSeries(currentSearchQuery, currentPage, false);
 });
 
-// Initialize page on load
+// Initialize the page on load
 initializePage();
