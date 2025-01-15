@@ -66,6 +66,9 @@ async function searchMoviesAndSeries() {
   }
   currentPage = 1;
   await loadMoviesAndSeries(currentSearchQuery, currentPage, true);
+  
+  // Push the search query and page to history
+  history.pushState({ query: currentSearchQuery, page: currentPage }, '', `?search=${encodeURIComponent(currentSearchQuery)}`);
 }
 
 function getParamsFromURL() {
@@ -115,3 +118,43 @@ function displayDetails(type, data, videos) {
     }
   `;
 }
+
+window.addEventListener('popstate', (event) => {
+  if (event.state && event.state.query) {
+    // On back/forward navigation, restore the previous search state
+    currentSearchQuery = event.state.query;
+    currentPage = event.state.page;
+    document.getElementById('search-input').value = currentSearchQuery;
+    loadMoviesAndSeries(currentSearchQuery, currentPage, true);
+  } else {
+    // If no state is available, load the default (home) page
+    loadMoviesAndSeries();
+  }
+});
+
+// Initialize page based on URL parameters (when user refreshes or lands on the page)
+function initializePage() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const searchQuery = urlParams.get('search');
+  if (searchQuery) {
+    currentSearchQuery = searchQuery;
+    document.getElementById('search-input').value = currentSearchQuery;
+    loadMoviesAndSeries(currentSearchQuery, currentPage, true);
+  } else {
+    loadMoviesAndSeries(); // Load default page if no search query
+  }
+}
+
+// Event listeners
+document.getElementById('search-button').addEventListener('click', searchMoviesAndSeries);
+document.getElementById('search-input').addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') searchMoviesAndSeries();
+});
+
+document.getElementById('load-more-button').addEventListener('click', () => {
+  currentPage++;
+  loadMoviesAndSeries(currentSearchQuery, currentPage, false);
+});
+
+// Initialize page on load
+initializePage();
