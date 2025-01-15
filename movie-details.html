@@ -1,24 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <link href="/styles.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Movie Details</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <header>Movie Details</header>
 
-<div id="movie-details"></div>
+  <div id="movie-details-container" class="movie-details-container"></div>
 
-<script src="/movie.js"></script>
-<script>
-  const { id, type } = getParamsFromURL();
-  if (id && type) {
-    fetchDetails(type, id);
-  } else {
-    document.getElementById('movie-details').innerHTML = '<p>Movie/Series ID or type not found in the URL.</p>';
-  }
-</script>
-
+  <script src="movie-details.js"></script>
 </body>
 </html>
