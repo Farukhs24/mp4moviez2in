@@ -42,7 +42,11 @@ function displayMoviesAndSeries(items, clear = false) {
       movieCard.className = 'movie-card';
       movieCard.innerHTML = `
         <a href='/movie-details.html?id=${item.id}&type=${item.type}'>
-          <img alt='${item.title || item.name}' src='${item.poster_path ? IMAGE_BASE_URL + item.poster_path : 'default-image.jpg'}'>
+          <img 
+            alt='${item.title || item.name}' 
+            src='${item.poster_path ? IMAGE_BASE_URL + item.poster_path : 'default-image.jpg'}' 
+            class="movie-image"
+          >
           <h3>${item.title || item.name}</h3>
         </a>
       `;
@@ -104,7 +108,11 @@ function displayDetails(type, data, videos) {
   const trailer = videos.find(video => video.type === 'Trailer' && video.site === 'YouTube');
   container.innerHTML = `
     <h1>${data.title || data.name || "No Title Available"}</h1>
-    <img src="${data.poster_path ? IMAGE_BASE_URL + data.poster_path : ''}" alt="${data.title || data.name}">
+    <img 
+      src="${data.poster_path ? IMAGE_BASE_URL + data.poster_path : ''}" 
+      alt="${data.title || data.name}" 
+      class="movie-details-image"
+    >
     <p><strong>Overview:</strong> ${data.overview || "No overview available."}</p>
     <p><strong>Release Date:</strong> ${data.release_date || data.first_air_date || "N/A"}</p>
     <p><strong>Rating:</strong> ${data.vote_average || "N/A"}/10</p>
