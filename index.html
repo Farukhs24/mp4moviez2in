@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link href="/styles.css" rel="stylesheet">
+  <title>Movie Listings</title>
+</head>
+<body>
+
+<header>Movie & TV Listings</header>
+
+<div class="search-container">
+  <input id="search-input" placeholder="Search for Hindi movies or series..." type="text">
+  <button id="search-button">Search</button>
+</div>
+
+<div id="movies" class="movies-container"></div>
+
+<button id="load-more-button">Load More</button>
+
+<script src="/movie.js"></script>
+<script>
+  document.getElementById('search-button').addEventListener('click', searchMoviesAndSeries);
+  document.getElementById('search-input').addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') searchMoviesAndSeries();
+  });
+
+  document.getElementById('load-more-button').addEventListener('click', () => {
+    currentPage++;
+    loadMoviesAndSeries(currentSearchQuery, currentPage, false);
+  });
+
+  loadMoviesAndSeries();
+</script>
+
+</body>
+</html>
