@@ -1,4 +1,4 @@
-/* Add the same styles as you had before for the search, cards, and buttons */
+/* Header styles */
 header {
   background-color: #007BFF;
   color: #fff;
@@ -8,6 +8,7 @@ header {
   font-weight: bold;
 }
 
+/* Search container styles */
 .search-container {
   display: flex;
   justify-content: center;
@@ -36,22 +37,26 @@ header {
   background-color: #8C2857;
 }
 
+/* Movies container styles */
 .movies-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 5px;
+  gap: 10px; /* Adjust spacing between cards */
   max-width: 900px;
   margin: 10px auto;
 }
 
+/* Movie card styles */
 .movie-card {
-  flex: 1 1 49%;
-  max-width: 49%;
-  padding: 5px;
+  flex: 1 1 calc(50% - 10px); /* Two-column layout */
+  max-width: calc(50% - 10px); /* Account for gap */
+  padding: 10px;
   text-align: center;
   background-color: #fff;
   border-radius: 5px;
+  box-sizing: border-box; /* Include padding and border in width */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .movie-card img {
@@ -66,6 +71,7 @@ header {
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* Load more button styles */
 #load-more-button {
   display: block;
   margin: 20px auto;
