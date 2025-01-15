@@ -1,7 +1,7 @@
 /* Header styles */
 header {
   background-color: #007BFF;
-  color: #fff;
+  color: #000; /* Title color changed to black */
   padding: 20px;
   text-align: center;
   font-size: 24px;
@@ -71,6 +71,19 @@ header {
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* Movie title color on the homepage */
+.movie-card .movie-title {
+  color: #000; /* Change the title color to black */
+  text-decoration: none; /* Remove any decoration like underlines */
+  font-size: 18px; /* Set a size for the title */
+  font-weight: bold; /* Make the title bold */
+}
+
+.movie-card .movie-title:hover {
+  color: #000; /* Ensure the color remains the same on hover */
+  text-decoration: none; /* Ensure no decoration on hover */
+}
+
 /* Load more button styles */
 #load-more-button {
   display: block;
@@ -85,4 +98,72 @@ header {
 
 #load-more-button:hover {
   background-color: #8C2857;
+}
+
+/* Movie Details Page Styles */
+.movie-details-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.movie-details-header {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.movie-details-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.movie-details-img {
+  flex: 1;
+  max-width: 400px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.movie-details-img img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.movie-details-info {
+  flex: 2;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #444;
+}
+
+.movie-details-info p {
+  margin-bottom: 10px;
+}
+
+.movie-details-info .title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #AA336A;
+}
+
+.movie-details-info .description {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #555;
+}
+
+.movie-details-info .genre,
+.movie-details-info .release-date {
+  margin-top: 10px;
+  font-style: italic;
+  color: #666;
 }
