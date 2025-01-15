@@ -67,7 +67,7 @@ async function searchMoviesAndSeries() {
   currentPage = 1;
   await loadMoviesAndSeries(currentSearchQuery, currentPage, true);
 
-  // Push the search query and page to history
+  // Push the search query into history to avoid showing search again when going back
   history.pushState({ query: currentSearchQuery, page: currentPage }, '', `?search=${encodeURIComponent(currentSearchQuery)}`);
 }
 
@@ -129,7 +129,9 @@ window.addEventListener('popstate', (event) => {
     loadMoviesAndSeries(currentSearchQuery, currentPage, true);
   } else {
     // If no search query in history, load the default (home) page
-    loadMoviesAndSeries(); // Load default posts if no search query
+    currentSearchQuery = '';  // Set to empty string to load home
+    currentPage = 1;  // Reset to the first page
+    loadMoviesAndSeries();  // Load default posts
   }
 });
 
