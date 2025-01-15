@@ -176,3 +176,35 @@ a {
   font-style: italic;
   color: #666;
 }
+
+/* Movie Details Button Styles */
+.movie-details-button {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #AA336A;
+  color: white;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 20px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.movie-details-button:hover {
+  background-color: #8C2857;
+}
+
+.movie-details-container .back-to-list {
+  display: block;
+  text-align: center;
+  margin-top: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #AA336A;
+}
+
+.movie-details-container .back-to-list:hover {
+  color: #8C2857;
+}
