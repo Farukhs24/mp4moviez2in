@@ -119,6 +119,7 @@ function displayDetails(type, data, videos) {
   `;
 }
 
+// Handle back/forward navigation with history state
 window.addEventListener('popstate', (event) => {
   if (event.state && event.state.query) {
     // If there's a search query in the history, load the previous search results
@@ -127,8 +128,8 @@ window.addEventListener('popstate', (event) => {
     document.getElementById('search-input').value = currentSearchQuery;
     loadMoviesAndSeries(currentSearchQuery, currentPage, true);
   } else {
-    // If there's no search query, load the default (home) page
-    loadMoviesAndSeries(); // Load default posts if no search query in history
+    // If no search query in history, load the default (home) page
+    loadMoviesAndSeries(); // Load default posts if no search query
   }
 });
 
