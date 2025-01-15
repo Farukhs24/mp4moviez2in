@@ -8,6 +8,9 @@ header {
   font-weight: bold;
   text-decoration: none;
 }
+header a {
+  color: white;
+}
 
 a {
   text-decoration: none;
