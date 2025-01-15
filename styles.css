@@ -208,3 +208,24 @@ a {
 .movie-details-container .back-to-list:hover {
   color: #8C2857;
 }
+
+
+
+
+
+
+/* For movie listing images */
+.movie-image {
+  width: 200px;
+  height: auto;
+  max-width: 100%;
+}
+
+/* For movie details images */
+.movie-details-image {
+  width: 300px;
+  height: auto;
+  max-width: 100%;
+}
+
+
