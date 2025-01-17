@@ -8,6 +8,7 @@ let loadedMovieIds = new Set();
 
 // Predefined items to show on the home page
 
+<script src="/movie-name.js"></script>
 
 // Fetch movies and series
 async function fetchMoviesAndSeries(page = 1, query = '') {
